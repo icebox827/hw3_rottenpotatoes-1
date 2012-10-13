@@ -4,7 +4,11 @@
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      %if params[:order_by] == 'title'
+      %th= link_to 'Movie Title', movies_path(:order_by => 'title'), :id => 'title_header', :class => 'selected'
+      %else
+      %th= link_to 'Movie Title', movies_path(:order_by => 'title'), :id => 'title_header'
+      %end
       %th Rating
       %th Release Date
       %th More Info
