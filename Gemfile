@@ -33,3 +33,5 @@ gem 'jquery-rails'
 
 # To use debugger
 gem 'haml'
+gem 'sinatra', '1.1.0'
+gem 'thin'
