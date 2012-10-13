@@ -44,8 +44,11 @@ table#movies th {
   font-weight: bold;
   background-color: wheat;
 }
-table#movies th.highlight{
+table#movies th a.highlight{
   background-color: yellow;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 table#movies th, table#movies td {
   padding: 4px;
