@@ -1,0 +1,129 @@
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-10-13 19:07:09 +0100
+Served asset /rails.png - 200 OK (4ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-10-13 19:08:55 +0100
+  Processing by MoviesController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Could not find table 'movies'):
+  app/controllers/movies_controller.rb:10:in `index'
+
+Rendered /home/nidhal/.rvm/gems/ruby-1.9.2-p320@certif/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/nidhal/.rvm/gems/ruby-1.9.2-p320@certif/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/nidhal/.rvm/gems/ruby-1.9.2-p320@certif/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (145.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (97.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.5ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("movies")
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-10-13 19:09:35 +0100
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Rendered movies/index.html.haml within layouts/application (12.9ms)
+Compiled application.css  (0ms)  (pid 3439)
+Compiled application.js  (5ms)  (pid 3439)
+Compiled jquery.js  (78ms)  (pid 3439)
+Compiled jquery_ujs.js  (4ms)  (pid 3439)
+Completed 200 OK in 146ms (Views: 143.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-13 19:09:35 +0100
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-13 19:09:35 +0100
+Served asset /application.js - 200 OK (10ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-13 19:09:35 +0100
+Served asset /jquery.js - 200 OK (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-13 19:09:35 +0100
+Served asset /jquery_ujs.js - 200 OK (6ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2012-10-13 19:10:13 +0100
+  Processing by MoviesController#new as HTML
+Rendered movies/new.html.haml within layouts/application (54.2ms)
+Completed 200 OK in 64ms (Views: 63.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-13 19:10:14 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:14 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:14 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:14 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies" for 127.0.0.1 at 2012-10-13 19:10:21 +0100
+  Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KokkWJL9Ca6vwldF3MnTIVR/IbqFyY29b/KfG+Cu+44=", "movie"=>{"title"=>"Title", "rating"=>"G", "release_date(1i)"=>"2012", "release_date(2i)"=>"10", "release_date(3i)"=>"13"}, "commit"=>"Save Changes"}
+  [1m[35mSQL (70.7ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 13 Oct 2012 18:10:21 UTC +00:00], ["description", nil], ["rating", "G"], ["release_date", Sat, 13 Oct 2012 00:00:00 UTC +00:00], ["title", "Title"], ["updated_at", Sat, 13 Oct 2012 18:10:21 UTC +00:00]]
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 197ms
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-10-13 19:10:21 +0100
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Rendered movies/index.html.haml within layouts/application (9.4ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:21 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:21 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-13 19:10:21 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:21 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2012-10-13 19:10:24 +0100
+  Processing by MoviesController#new as HTML
+Rendered movies/new.html.haml within layouts/application (6.8ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-13 19:10:24 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:24 +0100
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:24 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-13 19:10:24 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
