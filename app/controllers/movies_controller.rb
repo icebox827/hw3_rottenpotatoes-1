@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
     case params[:order_by]
     when "title"
       @movies = Movie.order_by_title
-    when "created_at"
+    when "release_date"
       @movies = Movie.order_by_created_at
     else
       @movies = Movie.all
