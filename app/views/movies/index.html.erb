@@ -3,8 +3,8 @@
   <%= form_tag movies_path, :method => :get, :id => "ratings_form" do %>
     Include: <% @all_ratings.each do |rating| %>
       <%= rating %>
-      <% if params[:ratings] %>
-        <%= check_box_tag "ratings[#{rating}]", 1, params[:ratings][rating] && params[:ratings][rating].to_i == 1 %>
+      <% if @search_params[:ratings] %>
+        <%= check_box_tag "ratings[#{rating}]", 1, @search_params[:ratings][rating] && @search_params[:ratings][rating].to_i == 1 %>
       <% else %>
         <%= check_box_tag "ratings[#{rating}]", 1, true %>
       <% end %>
@@ -15,12 +15,12 @@
 <table id="movies">
   <thead>
     <tr>
-      <th <%= "class='hilite'" if params[:order_by] == "title" %>>
-        <%= link_to "Movie Title", movies_path(params.merge(:order_by => "title")), :id => "title_header" %>
+      <th <%= "class='hilite'" if @search_params[:order_by] == "title" %>>
+        <%= link_to "Movie Title", movies_path(@search_params.merge(:order_by => "title")), :id => "title_header" %>
       </th>
       <th>Rating</th>
-      <th <%= "class='hilite'" if params[:order_by] == "release_date" %>>
-        <%= link_to "Release Date", movies_path(params.merge(:order_by => "release_date")), :id => "release_date_header" %>
+      <th <%= "class='hilite'" if @search_params[:order_by] == "release_date" %>>
+        <%= link_to "Release Date", movies_path(@search_params.merge(:order_by => "release_date")), :id => "release_date_header" %>
       </th>
       <th>More Info</th>
     </tr>
