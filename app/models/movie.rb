@@ -19,6 +19,6 @@ class Movie < ActiveRecord::Base
     end
     movies = self
     movies = self.search_by_rating(ratings_table) unless ratings_table.empty?
-    movies.all
+    movies
   end
 end

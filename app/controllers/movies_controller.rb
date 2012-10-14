@@ -10,11 +10,11 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_rating
     case params[:order_by]
     when "title"
-      @movies = Movie.order_by_title
+      @movies = Movie.ratings_search(params).order_by_title
     when "release_date"
-      @movies = Movie.order_by_created_at
+      @movies = Movie.ratings_search(params).order_by_created_at
     else
-      @movies = Movie.ratings_search(params)
+      @movies = Movie.ratings_search(params).all
     end
   end
 
