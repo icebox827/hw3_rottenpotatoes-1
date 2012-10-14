@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_rating
+    @search_params = []
     session[:last_search] = params if !params[:order_by].nil? || !params[:ratings].nil?
     @search_params = params[:order_by].nil? && params[:ratings].nil? ? session[:last_search] : params
     case @search_params[:order_by]
