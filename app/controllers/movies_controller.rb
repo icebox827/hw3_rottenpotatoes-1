@@ -11,12 +11,17 @@ class MoviesController < ApplicationController
     @search_params = []
     session[:last_search] = params if !params[:order_by].nil? || !params[:ratings].nil?
     @search_params = params[:order_by].nil? && params[:ratings].nil? ? session[:last_search] : params
-    case @search_params[:order_by]
-    when "title"
-      @movies = Movie.ratings_search(@search_params).order_by_title
-    when "release_date"
-      @movies = Movie.ratings_search(@search_params).order_by_created_at
+    if @search_params
+      case @search_params[:order_by]
+      when "title"
+        @movies = Movie.ratings_search(@search_params).order_by_title
+      when "release_date"
+        @movies = Movie.ratings_search(@search_params).order_by_created_at
+      else
+        @movies = Movie.ratings_search(@search_params).all
+      end
     else
+      @search_params = params
       @movies = Movie.ratings_search(@search_params).all
     end
   end
