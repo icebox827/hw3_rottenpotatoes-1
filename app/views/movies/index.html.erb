@@ -1,4 +1,12 @@
 <h1>All Movies</h1>
+<% unless @all_ratings.empty?  %>
+  <%= form_tag movies_path, :method => :get, :id => "ratings_form" do %>
+    Include: <% @all_ratings.each do |rating| %>
+      <%= rating %><%= check_box_tag "ratings[#{rating}]", 1, params[:ratings] && params[:ratings][rating] && params[:ratings][rating].to_i == 1 %>
+    <% end %>
+    <%= submit_tag "Refresh", :id => "ratings_submit" %>
+  <% end %>
+<% end %>
 <table id="movies">
   <thead>
     <tr>
